@@ -18,16 +18,11 @@ testing_extras = tests_require + [
 from setuptools import setup, find_packages
 
 here = os.path.abspath(os.path.dirname(__file__))
-version_txt = os.path.join(here, 'VERSION')
-
-print(os.listdir(here))
-
-with open(version_txt, 'r') as f:
-    project_version = f.read().strip()
+version_txt = '0.0.1'
 
 dist = setup(
     name='42emoji',
-    version=project_version,
+    version=version_txt,
     license='MIT',
     description="Application for moderated 42 emojis",
     author="Harm Smits",
