@@ -38,7 +38,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        python-version: ["3.10", "3.11"]
+        python-version: ["3.11"]
 
     steps:
     - uses: actions/checkout@v2
@@ -52,7 +52,7 @@ jobs:
       run: pip install virtualenv tox
 
     - name: Set TOXENV based on Python version
-      run: python -c 'import sys; e="cover" if sys.version_info.major == 2 else "cover3"; print("TOXENV=%s" % e)' | tee -a $GITHUB_ENV
+      run: python -c 'import sys; print("TOXENV=cover")' | tee -a $GITHUB_ENV
 
     - name: Run unit test coverage
       run: tox
